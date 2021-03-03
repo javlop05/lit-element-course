@@ -1,9 +1,9 @@
 import { LitElement, html, css } from 'lit-element';
 import { bulmaStyles } from "@granite-elements/granite-lit-bulma";
-import { Router } from '@vaadin/router';
-import './views/babelHome/babel-home';
+import { RouterMixin } from './router/routerMixin';
+import { routes } from './router/routes';
 
-export class BabelFormationApp extends LitElement {
+export class BabelFormationApp extends RouterMixin(LitElement) {
 
     static get styles() {
         return [
@@ -16,17 +16,12 @@ export class BabelFormationApp extends LitElement {
         ]
     }
 
-    connectedCallback() {
-        super.connectedCallback();
+    get routes() {
+        return routes;
     }
 
-    firstUpdated(_changedProperties) {
-        super.firstUpdated(_changedProperties);
-
-        const router = new Router(this.shadowRoot.querySelector('#content-main'));
-        router.setRoutes([
-            { path: '/', component: 'babel-home' },
-        ]);
+    connectedCallback() {
+        super.connectedCallback();
     }
 
     render() {
