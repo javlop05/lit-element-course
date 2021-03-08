@@ -2,11 +2,13 @@ export const routes = [
     {
         path: '/',
         component: 'babel-login',
-        action: () => import('../views/babelLogin/babel-login')
+        pathComponent: '../views/babelLogin/babel-login.js',
+        protected: false
     },
     {
         path: '/home',
         component: 'babel-home',
-        action: () => import('../views/babelHome/babel-home')
-    },
+        pathComponent: '../views/babelHome/babel-home.js',
+        protected: true
+    }
 ]

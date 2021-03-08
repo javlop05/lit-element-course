@@ -1,10 +1,11 @@
 import { LitElement, html } from 'lit-element';
+import '../../package/babelAuthentication/babel-authentication';
 
 export class BabelLogin extends LitElement {
 
     render() {
         return html`
-            <h1>Estoy en login</h1>
+            <babel-authentication></babel-authentication>
         `;
     }
 }
